@@ -2,7 +2,7 @@
 小米后台刷入miwifi_rb03_firmware_stable_1.2.7（内测版）.bin 
 
 0*2解锁SSH
-打开https://miwifi.gq/输入路由器标签完整的SN号, 计算root密码
+打开https://miwifi.gq   输入路由器标签完整的SN号, 计算root密码
 
 0*3下载MobaXterm
 MobaXterm下载：https://mobaxterm.mobatek.net/download.html
