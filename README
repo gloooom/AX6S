@@ -7,5 +7,20 @@
 0*3下载MobaXterm
 MobaXterm下载：https://mobaxterm.mobatek.net/download.html
 选择Telnet，输入192.168.31.1 用户名root，密码是上面计算的root密码。
+Telnet登录成功以后输入以下三条命令解锁SSH
+nvram set ssh_en=1 & nvram set uart_en=1 & nvram set boot_wait=on & nvram set bootdelay=3 & nvram set flag_try_sys1_failed=0 & nvram set flag_try_sys2_failed=1
+nvram set flag_boot_rootfs=0 & nvram set "boot_fw1=run boot_rd_img;bootm"
+nvram set flag_boot_success=1 & nvram commit & /etc/init.d/dropbear enable & /etc/init.d/dropbear start
 
-0*4
+0*4刷入 OPENWRT FACTORY.BIN 过渡包
+打开MobaXterm，选择SSH连接，输入192.168.31.1 用户名root，密码是上面计算的root密码。
+将FACTORY.BIN 过渡包拖入/tmp目录下。
+执行刷入命令 : mtd -r write /tmp/factory.bin firmware
+完成后路由器自动重启。
+
+0*5刷入 OPENWRT 正式固件
+登录10.0.0.1，进入备份与升级，选择刷写固件。
+
+
+知识点：
+固件定制：https://openwrt.ai/
